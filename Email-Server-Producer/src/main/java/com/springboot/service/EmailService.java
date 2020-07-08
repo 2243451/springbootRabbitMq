@@ -15,8 +15,16 @@ public interface EmailService {
      */
     void sendEmailMsg(String message) throws Exception;
 
-
+    /**
+     * @Description: FanOut交换机方式发送至全部队列
+     * @Author: lixiaochen
+     * @Date: 2020/7/8 14:40
+     */
     void RabbitExChangeToTopicMsg(String message);
-
+    /**
+     * @Description: 发送至交换机Topic方式发送 可通过RoutingKey匹配
+     * @Author: lixiaochen
+     * @Date: 2020/7/8 14:40
+     */
     void RabbitChangeToFanoutMsg(String message);
 }

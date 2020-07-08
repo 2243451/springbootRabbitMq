@@ -21,6 +21,11 @@ import com.springboot.service.EmailService;
 public class RabbitController {
 	@Autowired
 	private  EmailService emailService;
+	/**
+	 * @Description: 发送消息至mq队列
+	 * @Author: lixiaochen
+	 * @Date: 2020/7/8 14:39
+	 */
 	@RequestMapping("/Rabbit")
 	public String setMessage(String message) {
 		try {
@@ -31,6 +36,11 @@ public class RabbitController {
 		return "ok";
 		
 	}
+	/**
+	 * @Description: FanOut交换机方式发送至全部队列
+	 * @Author: lixiaochen
+	 * @Date: 2020/7/8 14:40
+	 */
     @GetMapping("/RabbitChangeToFanoutMsg")
     public String RabbitChangeToFanoutMsg(String message) {
         try {
@@ -41,6 +51,11 @@ public class RabbitController {
         return "ok";
 
     }
+    /**
+     * @Description: 发送至交换机Topic方式发送 可通过RoutingKey匹配
+     * @Author: lixiaochen
+     * @Date: 2020/7/8 14:40
+     */
     @GetMapping("/RabbitExChangeToTopicMsg")
     public String RabbitExChangeToTopicMsg(String message) {
         try {

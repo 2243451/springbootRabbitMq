@@ -62,13 +62,12 @@ public class EmailServiceImpl implements EmailService,RabbitTemplate.ConfirmCall
      */
     @Override
     public void RabbitChangeToFanoutMsg(String message) {
-
         rabbitTemplate1.convertAndSend(RabbitMQConfig.EXCHANGE_EMAIL,"",message);
     }
 
 
     /**
-     * 消息确认消费
+     * 消息确认消费（自动确认）
      * @param correlationData
      * @param ack
      * @param cause

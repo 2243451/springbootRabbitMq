@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/GitRepository.iml" filepath="$PROJECT_DIR$/.idea/GitRepository.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Email-Server-Consumer/email-server-consumer.iml" filepath="$PROJECT_DIR$/Email-Server-Consumer/email-server-consumer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Email-Server-Producer/email-server-producer.iml" filepath="$PROJECT_DIR$/Email-Server-Producer/email-server-producer.iml" />
+    </modules>
+  </component>
+</project>

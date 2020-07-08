@@ -4,10 +4,12 @@ import com.rabbitmq.client.Channel;
 import com.springboot.bean.Person;
 import com.springboot.config.RabbitMQConfig;
 import org.springframework.amqp.rabbit.annotation.*;
+import org.springframework.amqp.support.AmqpHeaders;
 import org.springframework.messaging.handler.annotation.Headers;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.stereotype.Component;
 
+import java.io.IOException;
 import java.util.Date;
 import java.util.Map;
 
@@ -61,10 +63,14 @@ public class ConsumeMqServer {
     )
     public  void   acceptSysLog(@Payload Person person,
                              Channel channel,
-                             @Headers Map<String, Object> headers){
+                             @Headers Map<String, Object> headers) throws IOException {
         System.out.println("SystemLog消息接收到"+person.getName());
         System.out.println("SystemLog消息接收到"+channel);
         System.out.println("SystemLog消息接收到"+headers);
+        // 采用手动应答模式, 手动确认应答更为安全稳定
+        // false当前消息确认, true此次之前的消息确认
+        Long deliveryTag = (Long)headers.get(AmqpHeaders.DELIVERY_TAG);
+        channel.basicAck(deliveryTag, false);
     }
 
 
