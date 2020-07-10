@@ -126,7 +126,7 @@ public class EmailServiceImpl implements EmailService{
     public void listenerEmailMsg(String message) {
         try {
             logger.info("接收到RabbitMQ的消息："+message);
-            sendTextEmail(message,"xiaochen_sam@163.com","致李晓晨的一封信");
+            sendTextEmail(message,"xiaochen@163.com","致李晓晨的一封信");
         } catch (Exception e) {
             e.printStackTrace();
 
