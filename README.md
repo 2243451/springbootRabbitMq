@@ -1,2 +1,2 @@
 # springbootRabbitMq
-springboot集成rabbitMq
+springboot集成rabbitMq发送邮件
